@@ -1,0 +1,66 @@
+<div class="container">
+  <!--<div class="row">
+    <div class="col-md-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Product id</th>
+            <th>Product name</th>
+            <th>Photo</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of productsList">
+            <th scope="row">{{ p.productId }}</th>
+            <td>{{ p.productName }}</td>
+            <td>
+              <img src="{{ p.productPhoto }}" width="100" />
+            </td>
+            <td>{{ p.productPrice }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>-->
+
+  <ul class="nav justify-content-end">
+    <li class="nav-item dropdown">
+      <a
+        class="nav-link dropdown-toggle"
+        data-toggle="dropdown"
+        href="#"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+        >{{ userloaded.userName }}</a
+      >
+      <div class="dropdown-menu">
+        <a class="dropdown-item" [routerLink]="['/edit', userloaded.userId]"
+          >Edit profile</a
+        >
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" routerLink="/">Separated link</a>
+      </div>
+    </li>
+  </ul>
+
+  <div class="row">
+    <div class="col-lg-4" *ngFor="let p of productsList">
+      <div class="card" style="width: 18rem;">
+        <img [src]="p.productPhoto" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">{{ p.productName }}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">$ {{ p.productPrice }}</li>
+          <li class="list-group-item">
+            <input type="number" [(ngModel)]="finalAmount" />
+          </li>
+          <li class="list-group-item"><div id="paypal-checkout-btn"></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
